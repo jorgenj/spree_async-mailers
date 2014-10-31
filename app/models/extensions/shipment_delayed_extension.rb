@@ -4,7 +4,7 @@ module ShipmentDelayedExtension
   def self.included(base)
     base.class_eval do
       def send_shipped_email
-        ShipmentMailer.delay(Spree::AsyncMailers.queue).shipped_email(self.id).deliver
+        Spree::ShipmentMailer.delay(Spree::AsyncMailers.queue).shipped_email(self.id)
       end
     end
   end
