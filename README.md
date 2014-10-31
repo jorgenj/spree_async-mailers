@@ -8,9 +8,9 @@ This gem can be used in conjunction with devise-async to make all of spree's mai
 Requirements
 ------------
 
-Spree (2.3+)
-Sidekiq (2.3+)
-Devise-Async (Suggested)
+Spree (~2.1.7)
+Sidekiq (2.3+) or DelayedJob
+Devise-Async (included)
 
 
 Todo
@@ -26,7 +26,7 @@ Installation
 Add spree_async-mailers to your Gemfile:
 
 ```ruby
-gem 'spree_async-mailers'
+gem 'spree_async-mailers', github: 'jorgenj/spree_async-mailers', :branch => '2-1-stable'
 ```
 
 
