@@ -4,12 +4,7 @@ module ShipmentDelayedExtension
   def self.included(base)
     base.class_eval do
       def send_shipped_email
-        begin
-          Spree::ShipmentMailer.delay(Spree::AsyncMailers.queue).shipped_email(self.id)
-        rescue => err
-          Rails.logger.error "Failed to enqueue delayed mailer : #{err.message} : #{err.backtrace.join('|')}"
-          raise err
-        end
+        Spree::ShipmentMailer.delay(queue: Spree::AsyncMailers.queue).shipped_email(self.id)
       end
     end
   end
